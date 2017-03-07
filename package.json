@@ -1,0 +1,39 @@
+{
+  "name": "node-capstone-find-register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandylavoy/node-capstone-find-and-register-for-events.git"
+  },
+  "author": "Brandy La Voy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandylavoy/node-capstone-find-and-register-for-events/issues"
+  },
+   "dependencies": {
+    "bcrypt": "^0.8.7",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+"unirest": "^0.5.1",
+    "mongodb": "^2.2.9",
+    "mongoose": "^4.5.10",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0"
+},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.5.3"
+  },
+  "homepage": "https://github.com/brandylavoy/node-capstone-find-and-register-for-events#readme"
+}
