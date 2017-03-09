@@ -1,7 +1,5 @@
 var express = require('express');
 var app = express();
-var _require = require('./models'),
-    ShoppingList = _require.ShoppingList;
 
 
 
