@@ -1,5 +1,173 @@
-*{
+/*css resets*/
+
+* {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-size: 100%;
+    text-decoration: none;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
     box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+    /*reset Firefox user agent styles*/
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+    /*reset Internet Explorer user agent styles*/
+    -ms-margin-before: 0px;
+    -ms-margin-after: 0px;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+    -ms-padding-before: 0px;
+    -ms-padding-after: 0px;
+    -ms-padding-start: 0px;
+    -ms-padding-end: 0px;
+    /*reset Opera user agent styles*/
+    -o-margin-before: 0px;
+    -o-margin-after: 0px;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+    -o-padding-before: 0px;
+    -o-padding-after: 0px;
+    -o-padding-start: 0px;
+    -o-padding-end: 0px;
+    font-family: 'Merriweather', serif;
+}
+
+
+/*general styling*/
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffa700;
+    text-align: center;
+    /*padding: 10px;*/
+}
+
+header form.search {
+    background-color: #47B5AD;
+   
+}
+
+.user-input form.search .postal-code,
+.activity-radius,
+.activity-distance,
+.search-button,
+.reset {
+    border-radius: 5px;
+    /*        increased height to improve display on larger screens*/
+    height: 40px;
+    line-height: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center center;
+}
+
+.user-input form.search .search-button,
+.reset {
+    background-color: #FFC963;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+h1 {
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 1.875em;
+    font-style: italic;
+}
+
+body {
+    text-align: left;
+    margin: 0 auto;
+    background-color: #202020;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #005F58;
+}
+
+h3 {
+    font-size: 1.25em;
+    color: #005F58;
+}
+
+section.display-results {
+    background-color: white;
+    background-image: url(runnerImg.png);
+    background-repeat: no-repeat;
+    background-position: center center fixed;
+    display: table-cell;
+    width: 80%;
+    height: 80%;
+    margin: 30px;
+    border: 3px solid #005F58;
+    padding: 30px 30px;
+    text-align: center;
+    color: #9B6500;
+}
+
+section.display-results a {
+    color: #005F58;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 10px 0;
+}
+
+li .activity-image, .display-results .activity-image{
+    /*float: left;*/
+    max-width: 10%;
+    max-height: 10%;
+}
+
+
+section.dashboard {
+    display: table-cell;
+    background-color: #47B5AD;
+    width: 20%;
+    height: 80%;
+    margin: 20px;
+    border: 3px solid #005F58;
+    padding: 20px 30px;
+    color: #005F58;
+}
+
+section.dashboard h3{
+    color: #9B6500;
+}
+
+section.display-results .registration{
+    background-image: url(btn_black_over.png);
+} 
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffa700;
+    text-align: center;
 }

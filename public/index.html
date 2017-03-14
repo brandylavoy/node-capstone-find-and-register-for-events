@@ -1,17 +1,136 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Find and Register for Endurance Events</title>
+    <title>Find and Register for Running Events</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 </head>
+
 <body>
-    <p>"Hello World"</p>
-     <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
+    <header>
+        <h1>Running Activity Finder</h1>
+        <img id="poweredBy" class="powered-by" src="power-by--drk.png"></img>
+
+
+        <br>
+        <section class="user-input" id="userInput">
+
+            <form id="activitySearch" class="search">
+                <input type="text" name="postalCode" id=postalCode class="postal-code" placeholder=" Enter zip code here..." />
+                <select name="radius" id="activityRadius" class="activity-radius">
+                <option value="choose" selected>Select a Search Radius</option>
+                <option value="Any">Any</option>
+                <option value="25 Miles">25 Miles</option>
+                <option value="50 Miles">50 Miles</option>
+                <option value="75 Miles">75 Miles</option>
+                <option value="150 Miles">150 Miles</option>
+                <option value="250 Miles">250 Miles</option>
+            </select>
+
+                <select name="activityDistance" id="activityDistance" class="activity-distance">
+                <option value="choose" selected>Select a Race Distance</option>
+                <option value="Any">Any</option>
+                <option value="5k">5k</option>
+                <option value="10k">10k</option>
+                <option value="Half Marathon">Half Marathon</option>
+                <option value="Marathon">Marathon</option>
+                <option value="5 Miles">5 Miles</option>
+                <option value="10 Miles">10 Miles</option>
+               
+            </select>
+                <input id="searchButton" type="submit" value="Submit" class="search-button" />
+                <button id="reset" onClick="window.location.reload()" class="reset">Reset Search</button>
+            </form>
+        </section>
+
+    </header>
+    <br>
+    <section class="dashboard" id="dashboard">
+        <h2>Dashboard</h2>
+        <br>
+        <h3>Favorites</h3>
+        <ul class="favorites" id="favorites">
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+        </ul>
+        <br>
+        <h3>Wishlist</h3>
+        <ul class="wishlist" id="wishlist">
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+        </ul>
+    </section>
+
+
+    <section class="display-results">
+        <h2>Event Search Results</h2>
+
+        <br>
+        <ul class="activity-results">
+            <li>
+                <img class="activity-image " src="runnerImg.png"></img>
+                <div class="event-description ">
+                    <a target="_blank " href="event.html">The Santa Rosa Full/Half Marathon & 10k/5K 2017</a>
+                    <p>Full/Half Marathon & 10k/5K</p>
+                    <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
+                    <p>Sunday, August 27, 2017</p>
+                </div>
+            </li>
+            <li>
+                <img class="activity-image " src="runnerImg.png"></img>
+                <div class="event-description ">
+                   <a target="_blank " href="event.html">The Santa Rosa Full/Half Marathon & 10k/5K 2017</a>
+                    <p>Full/Half Marathon & 10k/5K</p>
+                    <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
+                    <p>Sunday, August 27, 2017</p>
+                </div>
+            </li>
+            <li>
+                <img class="activity-image " src="runnerImg.png"></img>
+                <div class="event-description ">
+                    <a target="_blank " href="event.html">The Santa Rosa Full/Half Marathon & 10k/5K 2017</a>
+                    <p>Full/Half Marathon & 10k/5K</p>
+                    <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
+                    <p>Sunday, August 27, 2017</p>
+                </div>
+            </li>
+            <li>
+                <img class="activity-image " src="runnerImg.png"></img>
+                <div class="event-description ">
+                    <a target="_blank " href="event.html">The Santa Rosa Full/Half Marathon & 10k/5K 2017</a>
+                    <p>Full/Half Marathon & 10k/5K</p>
+                    <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
+                    <p>Sunday, August 27, 2017</p>
+                </div>
+            </li>
+            <li>
+                <img class="activity-image " src="runnerImg.png"></img>
+                <div class="event-description ">
+                    <a target="_blank " href="event.html">The Santa Rosa Full/Half Marathon & 10k/5K 2017</a>
+                    <p>Full/Half Marathon & 10k/5K</p>
+                    <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
+                    <p>Sunday, August 27, 2017</p>
+                </div>
+            </li>
+        </ul>
+      
+    </section>
+
+    <footer class="contact">
+        <h5>Brandy La Voy</h5>
+        <address>brandylavoy at gmail dot com</address>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="client.js"></script>
-   
+
 </body>
 
 </html>
