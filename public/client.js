@@ -206,13 +206,15 @@ function displayActiveSearchData(dataMatches) {
     // http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&zip=94590&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx
     $.each(dataMatches, function(dataMatchesKey, dataMatchesValue) {
         //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
-        buildTheHtmlOutput += '<li>';
+        buildTheHtmlOutput += '<li class="events">';
         buildTheHtmlOutput += '<div class="event-description">';
         buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
-        buildTheHtmlOutput += '<p>Distance: ' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
-        buildTheHtmlOutput += '<p>Location: ' + dataMatchesValue.place.cityName + '</p>';
-        var utcDate = dataMatchesValue.activityStartDate;  // ISO-8601 formatted date returned from server
-        buildTheHtmlOutput += '<p>Date: ' + new Date(utcDate) + '</p>';
+        //buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
+        buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + '</p>';
+        var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
+        buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
+        // buildTheHtmlOutput += '<img>' + dataMatches.logoUrlAdr; 
+        // buildTheHtmlOutput += '</img>'
         buildTheHtmlOutput += '</div>';
         buildTheHtmlOutput += '</li>';
     });
@@ -225,10 +227,30 @@ function displayActiveSearchData(dataMatches) {
 
 
 // document ready function
-$(function() {
-    ajaxActiveSearch('running');
+// $(function() {
+//     ajaxActiveSearch('running');
 
+// });
+
+
+// STEP 1 - get the input from the user
+$("#activitySearch").submit(function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    //get the value from the input box
+    var userInput = $("#cityName").val();
+    console.log(userInput);
+    //use that value to call the getResults function defined bellow
+    ajaxActiveSearch(userInput);
 });
+
+
+
+
+
+
+
+
 
 
 
