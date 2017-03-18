@@ -60,10 +60,13 @@ header {
 
 header form.search {
     background-color: #47B5AD;
-   
 }
 
-.user-input form.search .postal-code,
+header form.search .zip-code {
+    padding-left: 0.5rem;
+}
+
+.user-input form.search .zip-code,
 .activity-radius,
 .activity-distance,
 .search-button,
@@ -83,7 +86,6 @@ header form.search {
     padding-left: 10px;
     padding-right: 10px;
 }
-
 
 h1 {
     font-weight: bold;
@@ -120,10 +122,10 @@ section.display-results {
     display: table-cell;
     width: 80%;
     height: 80%;
-    margin: 30px;
+    margin: 0 auto;
+    text-align: center;
     border: 3px solid #005F58;
     padding: 30px 30px;
-    text-align: center;
     color: #9B6500;
 }
 
@@ -139,12 +141,12 @@ li {
     margin: 10px 0;
 }
 
-li .activity-image, .display-results .activity-image{
+li .activity-image,
+.display-results .activity-image {
     /*float: left;*/
     max-width: 10%;
     max-height: 10%;
 }
-
 
 section.dashboard {
     display: table-cell;
@@ -157,17 +159,38 @@ section.dashboard {
     color: #005F58;
 }
 
-section.dashboard h3{
+section.dashboard h3 {
     color: #9B6500;
 }
 
-section.display-results .registration{
-    background-image: url(btn_black_over.png);
-} 
+button.registration-button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: block;
+}
 
 footer {
     width: 100%;
     margin: 0 auto;
     background-color: #ffa700;
     text-align: center;
+    color: #005F58;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 800px) {
+    section.display-results ul li {
+        width: 60%;
+        margin: 0.5rem auto;
+        display: block;
+    }
+    section.user-input input,
+    section.user-input select {
+        width: 60% !important;
+        margin: 1rem auto;
+        display: block;
+    }
 }
