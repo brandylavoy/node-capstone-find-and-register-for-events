@@ -87,6 +87,10 @@ header form.search .city-name {
     padding-right: 10px;
 }
 
+.user-input form.search .city-name {
+    width: 300px;
+}
+
 h1 {
     font-weight: bold;
     font-size: 2rem;
@@ -113,8 +117,12 @@ h3 {
     font-size: 1.25rem;
     color: #005F58;
 }
-.wrapper{
-    width:100%;
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    width: 100%;
     font: 0px;
 }
 
@@ -131,39 +139,38 @@ section.display-results {
     padding: 1rem;
     color: #9B6500;
 }
-.display-results .activity-results .event-description{
-    display: inline-block;
-    border:2px #FFBB39 solid;
+
+.display-results .activity-results .event-description {
+    border: 2px #FFBB39 solid;
     background-color: #FFC963;
     margin: 0.5rem;
     padding: 0.5rem;
+    border-radius: 5px;
 }
 
-
-
-section.display-results a {
-    color: #005F58;
-}
-
-ul {
-    list-style: none;
-}
-
-li.events {
-    margin: 10px 0;
+.display-results .activity-results .events{
+    position: relative;
+    margin: 10px 1%;
     width: 40%;
     display: inline-block;
 }
 
-li .activity-image,
-.display-results .activity-image {
-    /*float: left;*/
-    max-width: 10%;
-    max-height: 10%;
+.display-results .activity-results .events .favorites {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+}
+.display-results .activity-results .events .favorites .add-favorite-icon {
+    width: 100%;
 }
 
-section.dashboard {
-    display: block;
+.display-results a {
+    color: #005F58;
+}
+
+.dashboard {
+    /*display: block;*/
     background-color: #47B5AD;
     width: 100%;
     margin: 0;
@@ -173,9 +180,23 @@ section.dashboard {
     text-align: center;
 }
 
-section.dashboard h3 {
-    color: #9B6500;
+.dashboard .favoritesContainer .favorites {
+    display: inline-block;
+    border: 2px #FFBB39 solid;
+    background-color: #FFC963;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
 }
+
+.dashboard .favoritesContainer .favorites .deleteFavorite .deleteFavorite .deleteFavorite{
+      position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    
+}
+
 
 
 button.registration-button {
@@ -186,7 +207,24 @@ button.registration-button {
     text-align: center;
     display: block;
 }
-
+button.addFavorite{
+    display: inline-block;
+    border: 2px #FFBB39 solid;
+    background-color: #FFC963;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    
+}
+button.deleteFavorite{
+    display: inline-block;
+    border: 2px #FFBB39 solid;
+    background-color: #FFC963;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    
+}
 footer {
     width: 100%;
     margin: 0 auto;
@@ -208,5 +246,4 @@ footer {
         margin: 1rem auto;
         display: block;
     }
-    
 }

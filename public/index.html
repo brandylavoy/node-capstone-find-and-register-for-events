@@ -20,8 +20,7 @@
         <section class="user-input" id="userInput">
 
             <form id="activitySearch" class="search">
-                <input type="text" name="cityName" id="cityName" class="city-name" placeholder=" Enter City and State here..." />
-                
+                <input type="text" name="cityName" id="cityName" class="city-name" placeholder=" Enter City, State (Ex. Napa, CA)..." />
                 <input id="searchButton" type="submit" value="Submit" class="search-button" />
                 <button id="reset" onClick="window.location.reload()" class="reset">Reset Search</button>
             </form>
@@ -43,7 +42,6 @@
                         <p>Distance: Full/Half Marathon & 10k/5K</p>
                         <p>Location: Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
                         <p>Date: Sunday, August 27, 2017</p>
-                        <img src="runnerImg"></img>
                     </div>
                 </li>
                 <li class="events">
@@ -86,13 +84,24 @@
 
         </section>
         <section class="dashboard" id="dashboard">
-            <h2>Dashboard</h2>
-            <br>
-            <h3>Favorites</h3>
-            <ul class="favorites" id="favorites">
-                <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-                <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-                <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
+            <h2>Favorites</h2>
+            <ul class="favoritesContainer" id="favoritesContainer">
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                <p class="cityName">Santa Rosa</p>
+                <p>Sunday March 19, 2017</p>
+                </li>
+               <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                <p class="cityName">Santa Rosa</p>
+                <p>Sunday March 19, 2017</p>
+                </li>
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                <p class="cityName">Santa Rosa</p>
+                <p>Sunday March 19, 2017</p>
+                </li>
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                <p class="cityName">Santa Rosa</p>
+                <p>Sunday March 19, 2017</p>
+                </li>
             </ul>
 
         </section>

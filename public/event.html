@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Event</title>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 </head>
 
 <body>
@@ -14,22 +14,9 @@
         <img id="poweredBy" class="powered-by" src="power-by--drk.png"></img>
 
     </header>
- 
 
-    <section class="dashboard" id="dashboard">
-        <h2>Dashboard</h2>
-        <br>
-        <h3>Favorites</h3>
-        <ul class="favorites" id="favorites">
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-            <li>The Santa Rosa Full/Half Marathon & 10k/5K 2017</li>
-        </ul>
-      
-    </section>
+
+
 
     <section class="display-results">
         <img class="activity-image " src="A-icon.png"></img>
@@ -39,32 +26,52 @@
             <p>Juilliard Park • 227 Santa Rosa Ave Santa Rosa, CA 95401</p>
             <p>Sunday, August 27, 2017</p>
             <p>The Santa Rosa Marathon starts on South A Street at Fire Hydrant #54 adjacent to oak studded Juilliard Park. The course snakes 2.5 miles through the city streets in the heart of downtown Santa Rosa before entering the Prince Memorial Greenway
-                for a 5.5 mile flat trek that gently meanders along the paved path next to all the beauty surrounding the Santa Rosa Creek. During this flat section runners will cross three picturesque rustic trestle bridges spanning the waterway dotted with wildlife (snowy egrets and great white herons), and pass three sprawling vineyards, deep green flowing corn fields, a horse ranch and a milk dairy. 
-
-The following 12 mile paved loop, (one lane for runners and one lane for minimal residential traffic), features the solitude of rural Sonoma County with its sporadic homes, large open spaces nestled with majestic oaks and numerous quaint wineries and scenic vineyards.
-
-A special and memorable treat waits at mile ten as the marathoners run through the beautiful Deloach Vineyard and Winery grounds and actually runs through one of its colorful wine barrel and fermenting rooms.
-
-There are a few minor rolling hills around mile 12 (30 to 40 foot gains) and mile 17.5 (10 to 20 foot gains). Otherwise the course is flat and fast and should still produce an extremely high percentage of Boston qualified runners.
-
-At mile 20.3 miles the marathon reenters the northern Greenway path and returns 5.9 miles along the same starting section of the Santa Rosa Creek to Juilliard Park and the finish line on South A Street.
-
-The highest elevation is 164 ft above sea level (Start/Finish) and 64 feet at its lowest spot. It’s an imperceptible 100 feet of loss the first 8 miles and 100 feet of gain on the same segment during the return.  During the 26.2 miles there is a total of +300 feet gain and a total -300 feet loss. Equivalent to zero net elevation gain during the entire race, which is almost as flat as it gets.
-
-Except, for a few hundred feet of hard pack surface on the Deloach Winery grounds, at mile ten, the marathon is on paved roads and pathways.
-
-Our cours is one of the top 10 Boston Qualifiers: USATF Certification CA14081RS</p>
-                <br>
-                <a target="_blank" href=https://www.active.com/santa-rosa-ca/running/distance-running-races/the-santa-rosa-full-half-marathon-and-10k-5k-2017?int=>
+                for a 5.5 mile flat trek that gently meanders along the paved path next to all the beauty surrounding the Santa Rosa Creek. During this flat section runners will cross three picturesque rustic trestle bridges spanning the waterway dotted
+                with wildlife (snowy egrets and great white herons), and pass three sprawling vineyards, deep green flowing corn fields, a horse ranch and a milk dairy. The following 12 mile paved loop, (one lane for runners and one lane for minimal residential
+                traffic), features the solitude of rural Sonoma County with its sporadic homes, large open spaces nestled with majestic oaks and numerous quaint wineries and scenic vineyards. A special and memorable treat waits at mile ten as the marathoners
+                run through the beautiful Deloach Vineyard and Winery grounds and actually runs through one of its colorful wine barrel and fermenting rooms. There are a few minor rolling hills around mile 12 (30 to 40 foot gains) and mile 17.5 (10 to
+                20 foot gains). Otherwise the course is flat and fast and should still produce an extremely high percentage of Boston qualified runners. At mile 20.3 miles the marathon reenters the northern Greenway path and returns 5.9 miles along the
+                same starting section of the Santa Rosa Creek to Juilliard Park and the finish line on South A Street. The highest elevation is 164 ft above sea level (Start/Finish) and 64 feet at its lowest spot. It’s an imperceptible 100 feet of loss
+                the first 8 miles and 100 feet of gain on the same segment during the return. During the 26.2 miles there is a total of +300 feet gain and a total -300 feet loss. Equivalent to zero net elevation gain during the entire race, which is almost
+                as flat as it gets. Except, for a few hundred feet of hard pack surface on the Deloach Winery grounds, at mile ten, the marathon is on paved roads and pathways. Our cours is one of the top 10 Boston Qualifiers: USATF Certification CA14081RS</p>
+            <br>
+            <a target="_blank" href=https://www.active.com/santa-rosa-ca/running/distance-running-races/the-santa-rosa-full-half-marathon-and-10k-5k-2017?int=>
                 <button class="registerAtActive">
          <img class="registration-button" src="btn_black.png"></img>
         </a>
         </button>
+                <br>
+                <br>
+
+                <button class="addFavorite" id="addFavorite">Click to save to favorites</button>
+                <br>
         </div>
-        <br>
-      
-          
-    </section>
+         </section>
+        <section class="dashboard" id="dashboard">
+            <h2>Favorites</h2>
+            <ul class="favoritesContainer" id="favoritesContainer">
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                    <p class="cityName">Santa Rosa</p>
+                    <p>Sunday March 19, 2017</p>
+                </li>
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                    <p class="cityName">Santa Rosa</p>
+                    <p>Sunday March 19, 2017</p>
+                </li>
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                    <p class="cityName">Santa Rosa</p>
+                    <p>Sunday March 19, 2017</p>
+                </li>
+                <li class="favorites">The Santa Rosa Full/Half Marathon & 10k/5K 2017
+                    <p class="cityName">Santa Rosa</p>
+                    <p>Sunday March 19, 2017</p>
+                </li>
+            </ul>
+
+        </section>
+
+
+   
     <footer class="contact">
         <h5>Brandy La Voy</h5>
         <address>brandylavoy at gmail dot com</address>

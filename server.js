@@ -73,4 +73,48 @@ app.get('/activity/:name', function (req, res) {
     });
 
 });
+
+
+
+
+app.post('/add-to-favorites', function (req, res) {
+    
+
+    console.log("request body = ", req.body);
+
+    //db connection and data queries
+        activity.create({
+            name: req.body.name
+        }, function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            res.status(201).json(item);
+        });
+});
+
+app.get('/populate-favorites', function (req, res) {
+    activity.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
+
+app.delete('/delete-favorites', function (req, res) {
+    activity.remove(req.params.id, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(200).json(items);
+    });
+});
+
 app.listen(3000);
