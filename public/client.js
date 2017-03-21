@@ -228,10 +228,11 @@ function displayActiveSearchData(dataMatches) {
             buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
         }
 
-        // buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
         buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + '</p>';
         var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
         buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
+
+
         // buildTheHtmlOutput += '<img>' + dataMatches.logoUrlAdr; 
         // buildTheHtmlOutput += '</img>'
 
@@ -274,11 +275,10 @@ $("#activitySearch").submit(function(event) {
 });
 
 
-
-if (ajaxActiveSearch == "") {
-    alert("Unfortunatley your search did not return any events. Please try entering a different city and state.")
-
-}
+// Alert if input is left blank
+// if (ajaxActiveSearch == "") {
+//     alert("Unfortunatley your search did not return any events. Please try entering a different city and state.")
+// }
 
 
 //populate favorites container
@@ -289,44 +289,37 @@ function populateFavoritesContainer() {
             type: "GET",
             url: "/populate-favorites/",
             dataType: 'json',
-            contentType: 'application/json'
         })
-        .done(function(dataMatches) {
+        .done(function(dataOutput) {
             //If successful, set some globals instead of using result object
 
 
 
             var buildTheHtmlOutput = "";
 
-            $.each(dataMatches, function(dataMatchesKey, dataMatchesValue) {
+            $.each(dataOutput, function(dataOutputKey, dataOutputValue) {
 
                 buildTheHtmlOutput += "<li class='favorites'>";
-
-                // delete button
                 buildTheHtmlOutput += "<div class='deleteFavorite'>";
                 buildTheHtmlOutput += "<form class='deleteFavorite'>";
-                buildTheHtmlOutput += "<input type='hidden' class='deleteFavoriteValue' value='" + dataMatchesValue.assetName + "'>";
+                buildTheHtmlOutput += "<input type='hidden' class='deleteFavoriteValue' value='" + dataOutputValue.name + "'>";
                 buildTheHtmlOutput += "<button type='submit' class='deleteFavorite'>";
                 buildTheHtmlOutput += "<img src='/images/delete_icon.png' class='delete-favorite-icon'>";
                 buildTheHtmlOutput += "</button>";
                 buildTheHtmlOutput += "</form>";
                 buildTheHtmlOutput += "</div>";
-
-
-                buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
-
-                var showCity = dataMatchesValue.place;
+                buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataOutputValue.registrationUrlAdr + '" >' + dataOutputValue.name + '</a></h4>';
+                var showCity = dataOutputValue.place;
                 if (showCity === undefined) {
                     buildTheHtmlOutput += "";
                 }
                 else {
-                    buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + '</p>';
+                    buildTheHtmlOutput += '<p>' + dataOutputValue.place.cityName + '</p>';
                 }
-
-                var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
+                var utcDate = dataOutputValue.activityStartDate; // ISO-8601 formatted date returned from server
                 buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
                 buildTheHtmlOutput += "</li>";
-                console.log(dataMatches);
+                console.log(dataOutput);
             });
             $(".favoritesContainer").html(buildTheHtmlOutput);
         })
@@ -339,11 +332,13 @@ function populateFavoritesContainer() {
 
 }
 
+
 $(function() {
     populateFavoritesContainer();
 
 });
 
+// add activity to favorites section
 $(document).on('click', '.activity-results .addToFavoritesButton', function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
