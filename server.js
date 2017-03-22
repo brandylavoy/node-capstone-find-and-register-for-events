@@ -41,7 +41,7 @@ var getFromActive = function(searchTerm) {
     unirest.get("http://api.amp.active.com/v2/search?query=running&category=event&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
         .header("Accept", "application/json")
         .end(function(result) {
-            console.log(result.status, result.headers, result.body);
+            //console.log(result.status, result.headers, result.body);
             //success scenario
             if (result.ok) {
                 emitter.emit('end', result.body);
@@ -80,11 +80,13 @@ app.get('/activity/:name', function (req, res) {
 app.post('/add-to-favorites', function (req, res) {
     
 
-    console.log("request body = ", req.body);
+    //console.log("request body = ", req.body);
 
     //db connection and data queries
         activity.create({
-            name: req.body.name
+            name: req.body.name,
+            date: req.body.date,
+            place: req.body.place
         }, function (err, item) {
             if (err) {
                 return res.status(500).json({
@@ -97,6 +99,7 @@ app.post('/add-to-favorites', function (req, res) {
 
 app.get('/populate-favorites', function (req, res) {
     activity.find(function (err, item) {
+        console.log(item);
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
@@ -106,15 +109,26 @@ app.get('/populate-favorites', function (req, res) {
     });
 });
 
-app.delete('/delete-favorites', function (req, res) {
-    activity.remove(req.params.id, function (err, items) {
+app.delete('/delete-favorites/:favoritesId', function(req, res) {
+    activity.findByIdAndRemove(req.params.favoritesId, function(err, items) {
         if (err)
             return res.status(404).json({
                 message: 'Item not found.'
             });
 
-        res.status(200).json(items);
+        res.status(201).json(items);
     });
 });
+
+// app.delete('/delete-favorites', function (req, res) {
+//     activity.remove(req.params.id, function (err, items) {
+//         if (err)
+//             return res.status(404).json({
+//                 message: 'Item not found.'
+//             });
+
+//         res.status(200).json(items);
+//     });
+// });
 
 app.listen(3000);

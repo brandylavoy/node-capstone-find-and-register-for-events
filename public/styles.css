@@ -46,6 +46,9 @@
     -o-padding-end: 0px;
     font-family: 'Merriweather', serif;
 }
+button {
+    background-color: transparent;
+}
 
 
 /*general styling*/
@@ -117,6 +120,7 @@ h3 {
     font-size: 1.25rem;
     color: #005F58;
 }
+
 ul {
     list-style: none;
 }
@@ -135,8 +139,8 @@ section.display-results {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    border: 3px solid #005F58;
-    padding: 1rem;
+    border: 2px solid #005F58;
+    /*padding: 1rem;*/
     color: #9B6500;
 }
 
@@ -148,12 +152,18 @@ section.display-results {
     border-radius: 5px;
 }
 
-.display-results .activity-results .events{
+.display-results .activity-results .events {
     position: relative;
     margin: 10px 1%;
     width: 40%;
     display: inline-block;
 }
+
+
+/*.display-results .activity-results .events .eventImage{*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*}*/
 
 .display-results .activity-results .events .favorites {
     position: absolute;
@@ -161,6 +171,7 @@ section.display-results {
     right: 5px;
     width: 20px;
 }
+
 .display-results .activity-results .events .favorites .add-favorite-icon {
     width: 100%;
 }
@@ -174,7 +185,7 @@ section.display-results {
     background-color: #47B5AD;
     width: 100%;
     margin: 0;
-    border: 3px solid #005F58;
+    border-top: 1px solid #005F58;
     padding: 1rem 1.5rem;
     color: #005F58;
     text-align: center;
@@ -187,46 +198,27 @@ section.display-results {
     margin: 0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
+    position: relative;
+    width: 20%;
 }
-
-.dashboard .favoritesContainer .favorites .deleteFavorite .deleteFavorite .deleteFavorite{
-      position: absolute;
-    top: 5px;
-    right: 5px;
+.deleteFavorite {
+    position: absolute;
+    top: -5px;
+    right: -5px;
     width: 20px;
-    
 }
 
 
+.dashboard .favoritesContainer .favorites .deleteFavorite .delete-favorite-icon {
+    width: 100%;
+    background-color: transparent;
+}
 
-button.registration-button {
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    display: block;
+.auto-populated-description {
+    height: 100px;
+    overflow-x: auto;
 }
-button.addFavorite{
-    display: inline-block;
-    border: 2px #FFBB39 solid;
-    background-color: #FFC963;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    
-}
-button.deleteFavorite{
-    display: inline-block;
-    border: 2px #FFBB39 solid;
-    background-color: #FFC963;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    width: 20px;
-    height: 20px;
-    
-}
+
 footer {
     width: 100%;
     margin: 0 auto;
@@ -247,5 +239,15 @@ footer {
         width: 60% !important;
         margin: 1rem auto;
         display: block;
+    }
+    .display-results .activity-results .events {
+        width: 100%;
+        margin: 0.5rem auto;
+        display: block;
+    }
+    .dashboard .favoritesContainer .favorites{
+         width: 100%;
+        margin: 0.5rem auto;
+        display: block; 
     }
 }

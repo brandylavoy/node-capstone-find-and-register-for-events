@@ -209,14 +209,19 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += '<li class="events">';
 
         buildTheHtmlOutput += "<div class='favorites'>";
+      
+      var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
+      
         buildTheHtmlOutput += "<form class='addToFavorites'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='"+ dataMatchesValue.place.cityName + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToFavoritesButton'>";
         buildTheHtmlOutput += "<img src='add_favorite.png' class='add-favorite-icon'>";
         buildTheHtmlOutput += "</button>";
         buildTheHtmlOutput += "</form>";
         buildTheHtmlOutput += "</div>";
-
+        // buildTheHtmlOutput += "<img class='eventImage' src='" + dataMatchesValue.logoUrlAdr + "'/>"; 
         buildTheHtmlOutput += '<div class="event-description">';
         buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
 
@@ -229,19 +234,20 @@ function displayActiveSearchData(dataMatches) {
         }
 
         buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + '</p>';
-        var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
+        
         buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
 
 
         // buildTheHtmlOutput += '<img>' + dataMatches.logoUrlAdr; 
         // buildTheHtmlOutput += '</img>'
 
-        var showDescription = dataMatches.assetDescriptions;
+        var showDescription = dataMatchesValue.assetDescriptions[0];
+        console.log(showDescription);
         if (showDescription === undefined) {
             buildTheHtmlOutput += "";
         }
         else {
-            buildTheHtmlOutput += '<p>' + dataMatches.assetDescriptions.description + '</p>';
+            buildTheHtmlOutput += "<div class='auto-populated-description'>" + dataMatchesValue.assetDescriptions[0].description + "</div>";
         }
 
         buildTheHtmlOutput += '</div>';
@@ -291,9 +297,8 @@ function populateFavoritesContainer() {
             dataType: 'json',
         })
         .done(function(dataOutput) {
+            // console.log(dataOutput);
             //If successful, set some globals instead of using result object
-
-
 
             var buildTheHtmlOutput = "";
 
@@ -301,9 +306,9 @@ function populateFavoritesContainer() {
 
                 buildTheHtmlOutput += "<li class='favorites'>";
                 buildTheHtmlOutput += "<div class='deleteFavorite'>";
-                buildTheHtmlOutput += "<form class='deleteFavorite'>";
-                buildTheHtmlOutput += "<input type='hidden' class='deleteFavoriteValue' value='" + dataOutputValue.name + "'>";
-                buildTheHtmlOutput += "<button type='submit' class='deleteFavorite'>";
+                buildTheHtmlOutput += "<form class='deleteFavoriteValue'>";
+                buildTheHtmlOutput += "<input type='hidden' class='deleteFavoriteValueInput' value='" + dataOutputValue._id + "'>";
+                buildTheHtmlOutput += "<button type='submit' class='deleteFavoriteButton'>";
                 buildTheHtmlOutput += "<img src='/images/delete_icon.png' class='delete-favorite-icon'>";
                 buildTheHtmlOutput += "</button>";
                 buildTheHtmlOutput += "</form>";
@@ -314,12 +319,11 @@ function populateFavoritesContainer() {
                     buildTheHtmlOutput += "";
                 }
                 else {
-                    buildTheHtmlOutput += '<p>' + dataOutputValue.place.cityName + '</p>';
+                    buildTheHtmlOutput += '<p>' + dataOutputValue.place + '</p>';
                 }
-                var utcDate = dataOutputValue.activityStartDate; // ISO-8601 formatted date returned from server
-                buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
+                buildTheHtmlOutput += '<p>' + dataOutputValue.date + '</p>';
                 buildTheHtmlOutput += "</li>";
-                console.log(dataOutput);
+                // console.log(dataOutput);
             });
             $(".favoritesContainer").html(buildTheHtmlOutput);
         })
@@ -343,11 +347,16 @@ $(document).on('click', '.activity-results .addToFavoritesButton', function(even
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
+    
+    
     var favoritesValue = $(this).parent().find('.addToFavoritesValue').val();
-
+    var favoritesDateValue = $(this).parent().find('.addToFavoritesDateValue').val();
+    var favoritesPlaceValue = $(this).parent().find('.addToFavoritesPlaceValue').val();
 
     var nameObject = {
-        'name': favoritesValue
+        'name': favoritesValue,
+        'date': favoritesDateValue,
+        'place': favoritesPlaceValue
     };
 
     $.ajax({
@@ -372,12 +381,19 @@ $(document).on('click', '.activity-results .addToFavoritesButton', function(even
 $(document).on('click', '.deleteFavorite', function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
+    //get the value from the input box
+    var favoritesIdToDelete = $(this).parent().find('.deleteFavoriteValueInput').val();
+
+
+    var nameObject = {
+        'name': favoritesIdToDelete
+    };
 
     $.ajax({
             method: 'DELETE',
             dataType: 'json',
             contentType: 'application/json',
-            url: '/delete-favorites',
+            url: '/delete-favorites/'+favoritesIdToDelete,
         })
         .done(function(result) {
             console.log(result);
