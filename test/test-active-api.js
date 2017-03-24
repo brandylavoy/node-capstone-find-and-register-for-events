@@ -1,18 +1,20 @@
-var chai = require("chai");
-var chaiHttp = require("chai-http");
-var server = require('../server');
-var models = require('../models');
+global.DATABASE_URL = 'mongodb://admin:admin@ds127300.mlab.com:27300/node-capstone-find-register-events';
+
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+
+var server = require('../server.js');
+var Activity = require('../models/activity');
 
 var should = chai.should();
 var app = server.app;
-// var storage = server.storage;
 
 chai.use(chaiHttp);
 
 describe('node-capstone-find-register-events', function() {
     before(function(done) {
         server.runServer(function() {
-            models.create({
+            Activity.create({
                 name: 'Broad beans'
             }, {
                 name: 'Tomatoes'
@@ -60,7 +62,7 @@ describe('node-capstone-find-register-events', function() {
         });
     });
     after(function(done) {
-        models.remove(function() {
+        Activity.remove(function() {
             done();
         });
     });
