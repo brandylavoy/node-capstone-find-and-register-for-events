@@ -38,7 +38,7 @@ if (require.main === module) {
 var getFromActive = function(searchTerm) {
     var emitter = new events.EventEmitter();
     //console.log("inside getFromActive function");
-    unirest.get("http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&category=races&sort=date_asc&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
+    unirest.get("http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&category=races&sort=date_asc&per_page=24&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
         .header("Accept", "application/json")
         .end(function(result) {
             //console.log(result.status, result.headers, result.body);

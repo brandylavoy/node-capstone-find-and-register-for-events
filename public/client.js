@@ -42,7 +42,7 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + "'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToFavoritesButton'>";
-        buildTheHtmlOutput += "<img src='add_favorite.png' class='add-favorite-icon'>";
+        buildTheHtmlOutput += "<img src='images/add_favorite.png' class='add-favorite-icon'>";
         buildTheHtmlOutput += "</button>";
         buildTheHtmlOutput += "</form>";
         buildTheHtmlOutput += "</div>";

@@ -131,13 +131,17 @@ ul {
 }
 
 .home-screen{
-    display: block;
+    width:100%;
     text-align: center;
+}
+
+.home-screen .home {
+    max-width: 100%;
 }
 
 .display-results {
     background-color: white;
-    background-image: url(runnerImg.png);
+    background-image: url(images/runnerImg.png);
     background-repeat: no-repeat;
     background-position: center center fixed;
     display: inline-block;
@@ -155,6 +159,7 @@ ul {
     margin: 0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
+   
 }
 
 .display-results .activity-results .events {
@@ -162,6 +167,7 @@ ul {
     margin: 10px 1%;
     width: 40%;
     display: inline-block;
+     vertical-align: top;
 }
 
 
@@ -172,7 +178,7 @@ ul {
 
 .display-results .activity-results .events .favorites {
     position: absolute;
-    top: -2px;
+    top: -1px;
     right: -1px;
     width: 30px;
 }
@@ -205,6 +211,7 @@ ul {
     border-radius: 5px;
     position: relative;
     width: 20%;
+    vertical-align: top;
 }
 .deleteFavorite {
     position: absolute;
@@ -257,4 +264,10 @@ footer {
         margin: 0.5rem auto;
         display: block; 
     }
+/*.home-screen{*/
+/*    display: block;*/
+/*    text-align: center;*/
+/*    width:25%;*/
+/*}*/
+    
 }
