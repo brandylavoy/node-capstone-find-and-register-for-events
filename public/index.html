@@ -20,13 +20,16 @@
         <section class="user-input" id="userInput">
 
             <form id="activitySearch" class="search">
-                <input type="text" name="cityName" id="cityName" class="city-name" placeholder=" Enter City, State (Ex. Napa, CA)..." />
-                <input id="searchButton" type="submit" value="Submit" class="search-button" />
+                <input type="text" name="cityName" id="cityName" class="city-name" placeholder=" Enter US City, State (Ex. Napa, CA)..." />
+                <input id="searchButton" type="submit" value="Submit" class="search-button" onclick="document.getElementById('homeScreen').style.display = 'none' ;" />
                 <button id="reset" onClick="window.location.reload()" class="reset">Reset Search</button>
             </form>
         </section>
 
     </header>
+    <div class="home-screen" id="homeScreen" style="display: block">
+        <img class="home" src="/images/Runner_over_blank_map.svg"></img>
+    </div>
     <div class="wrapper">
         <section class="display-results">
             <ul class="activity-results">

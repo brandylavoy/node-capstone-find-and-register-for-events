@@ -38,7 +38,7 @@ if (require.main === module) {
 var getFromActive = function(searchTerm) {
     var emitter = new events.EventEmitter();
     //console.log("inside getFromActive function");
-    unirest.get("http://api.amp.active.com/v2/search?query=running&category=event&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
+    unirest.get("http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&category=races&sort=date_asc&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
         .header("Accept", "application/json")
         .end(function(result) {
             //console.log(result.status, result.headers, result.body);
@@ -86,7 +86,8 @@ app.post('/add-to-favorites', function (req, res) {
         activity.create({
             name: req.body.name,
             date: req.body.date,
-            place: req.body.place
+            place: req.body.place,
+            url: req.body.url
         }, function (err, item) {
             if (err) {
                 return res.status(500).json({

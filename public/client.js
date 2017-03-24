@@ -1,181 +1,5 @@
 /* global $ */
 
-// var activityArray = [{
-//         activityName: "Run 1",
-//         activityDistance: "1k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 2",
-//         activityDistance: "2k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 3",
-//         activityDistance: "3k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 4",
-//         activityDistance: "4k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 5",
-//         activityDistance: "5k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 6",
-//         activityDistance: "6k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 7",
-//         activityDistance: "7k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 8",
-//         activityDistance: "8k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 9",
-//         activityDistance: "9k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 10",
-//         activityDistance: "10k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 11",
-//         activityDistance: "11k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 12",
-//         activityDistance: "12k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 13",
-//         activityDistance: "13k",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 14",
-//         activityDistance: "1 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 15",
-//         activityDistance: "2 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 16",
-//         activityDistance: "3 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 17",
-//         activityDistance: "4 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 18",
-//         activityDistance: "5 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 19",
-//         activityDistance: "6 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 20",
-//         activityDistance: "7 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 21",
-//         activityDistance: "8 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 22",
-//         activityDistance: "9 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 23",
-//         activityDistance: "10 Mile",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 24",
-//         activityDistance: "Half Marathon",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     },
-
-//     {
-//         activityName: "Run 25",
-//         activityDistance: "Marathon",
-//         activityLocation: "San Francisco, CA",
-//         activityDate: "Saturday, March 25, 2017"
-//     }
-// ]
-
 // search for running activities
 // local ajax call to the server external api
 
@@ -187,7 +11,7 @@ function ajaxActiveSearch(searchTerm) {
             dataType: 'json',
         })
         .done(function(dataOutput) {
-            console.log(dataOutput);
+            // console.log(dataOutput);
             displayActiveSearchData(dataOutput.results);
             // displayActiveActivityResults(JSON.parse(resultsForJsonParse));
         })
@@ -209,13 +33,14 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += '<li class="events">';
 
         buildTheHtmlOutput += "<div class='favorites'>";
-      
-      var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
-      
+
+        var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
+
         buildTheHtmlOutput += "<form class='addToFavorites'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='"+ dataMatchesValue.place.cityName + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
         buildTheHtmlOutput += "<button type='submit' class='addToFavoritesButton'>";
         buildTheHtmlOutput += "<img src='add_favorite.png' class='add-favorite-icon'>";
         buildTheHtmlOutput += "</button>";
@@ -223,7 +48,14 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += "</div>";
         // buildTheHtmlOutput += "<img class='eventImage' src='" + dataMatchesValue.logoUrlAdr + "'/>"; 
         buildTheHtmlOutput += '<div class="event-description">';
-        buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
+
+        var linkUrl = dataMatchesValue.registrationUrlAdr;
+        if (linkUrl === undefined) {
+            buildTheHtmlOutput += '<h4>' + dataMatchesValue.assetName + '</h4>';
+        }
+        else {
+            buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
+        }
 
         var showDistance = dataMatchesValue.assetAttributes[0];
         if (showDistance === undefined) {
@@ -234,7 +66,7 @@ function displayActiveSearchData(dataMatches) {
         }
 
         buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + '</p>';
-        
+
         buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
 
 
@@ -242,7 +74,7 @@ function displayActiveSearchData(dataMatches) {
         // buildTheHtmlOutput += '</img>'
 
         var showDescription = dataMatchesValue.assetDescriptions[0];
-        console.log(showDescription);
+        // console.log(showDescription);
         if (showDescription === undefined) {
             buildTheHtmlOutput += "";
         }
@@ -255,7 +87,7 @@ function displayActiveSearchData(dataMatches) {
     });
 
     // buildTheHtmlOutput += "</ul>";
-
+    // console.log(dataMatches);
     //use the HTML output to show it in the index.html
     $(".activity-results").html(buildTheHtmlOutput);
 }
@@ -273,10 +105,20 @@ $("#activitySearch").submit(function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
+    
+    
     var userInput = $("#cityName").val();
-    console.log(userInput);
+    
+    if(userInput === "") {
+        alert("Sorry that search did not yeild any results. Please enter a city and state and try your search again.");
+    }
+    else{
+    // console.log(userInput);
+      ajaxActiveSearch(userInput);    
+    }
     //use that value to call the getResults function defined bellow
-    ajaxActiveSearch(userInput);
+  
+  
 
 });
 
@@ -313,7 +155,7 @@ function populateFavoritesContainer() {
                 buildTheHtmlOutput += "</button>";
                 buildTheHtmlOutput += "</form>";
                 buildTheHtmlOutput += "</div>";
-                buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataOutputValue.registrationUrlAdr + '" >' + dataOutputValue.name + '</a></h4>';
+                buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataOutputValue.url + '" >' + dataOutputValue.name + '</a></h4>';
                 var showCity = dataOutputValue.place;
                 if (showCity === undefined) {
                     buildTheHtmlOutput += "";
@@ -347,16 +189,18 @@ $(document).on('click', '.activity-results .addToFavoritesButton', function(even
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
-    
-    
+
+
     var favoritesValue = $(this).parent().find('.addToFavoritesValue').val();
     var favoritesDateValue = $(this).parent().find('.addToFavoritesDateValue').val();
     var favoritesPlaceValue = $(this).parent().find('.addToFavoritesPlaceValue').val();
+    var favoritesUrlValue = $(this).parent().find('.addToFavoritesUrlValue').val();
 
     var nameObject = {
         'name': favoritesValue,
         'date': favoritesDateValue,
-        'place': favoritesPlaceValue
+        'place': favoritesPlaceValue,
+        'url': favoritesUrlValue
     };
 
     $.ajax({
@@ -393,7 +237,7 @@ $(document).on('click', '.deleteFavorite', function(event) {
             method: 'DELETE',
             dataType: 'json',
             contentType: 'application/json',
-            url: '/delete-favorites/'+favoritesIdToDelete,
+            url: '/delete-favorites/' + favoritesIdToDelete,
         })
         .done(function(result) {
             console.log(result);
