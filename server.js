@@ -132,4 +132,7 @@ app.delete('/delete-favorites/:favoritesId', function(req, res) {
 //     });
 // });
 
+exports.app = app;
+exports.runServer = runServer;
+
 app.listen(3000);
