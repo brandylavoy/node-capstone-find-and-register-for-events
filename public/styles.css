@@ -83,6 +83,9 @@ header form.search .city-name {
     text-align: center center;
 }
 
+img {border : 0;}
+img a {outline : none;}
+
 .user-input form.search .search-button,
 .reset {
     background-color: #FFC963;

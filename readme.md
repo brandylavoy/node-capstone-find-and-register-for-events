@@ -3,9 +3,12 @@ Thinkful (https://www.thinkful.com) Unit 2 Capstone Project - Node.js app integr
 
 ![home page no results](https://brandylavoy.github.io/node-capstone-find-and-register-for-events/git_hub_images/home-page-no-results.png)
 
+
 ![home page with results](https://brandylavoy.github.io/node-capstone-find-and-register-for-events/git_hub_images/home-page-with-results.png)
 
+
 ![home page with favorites](https://brandylavoy.github.io/node-capstone-find-and-register-for-events/git_hub_images/home-page-with-favorites.png)
+
 
 ## Background
 

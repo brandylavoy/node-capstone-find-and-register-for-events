@@ -4,7 +4,7 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 
 var server = require('../server.js');
-var Activity = require('../models/activity');
+var Activity = require('../models/activity.js');
 
 var should = chai.should();
 var app = server.app;
@@ -15,52 +15,71 @@ describe('node-capstone-find-register-events', function() {
     before(function(done) {
         server.runServer(function() {
             Activity.create({
-                name: 'Broad beans'
+                name: 'Fun Run'
             }, {
-                name: 'Tomatoes'
+                name: 'Run Event'
             }, {
-                name: 'Peppers'
+                name: 'Color Run'
             }, function() {
                 done();
             });
         });
     });
 
-    describe('index page', function() {
-        it('exists', function(done) {
+    describe('node-capstone-find-register-events', function() {
+
+        it('should list activities on GET', function(done) {
             chai.request(app)
                 .get('/')
                 .end(function(err, res) {
+                    should.equal(err, null);
                     res.should.have.status(200);
-                    res.should.be.html;
+                    res.should.be.json;
+                    res.body.should.be.a('array');
+                    res.body.should.have.length(3);
+                    res.body[0].should.be.a('object');
+                    res.body[0].should.have.property('_id');
+                    res.body[0].should.have.property('name');
+                    res.body[0]._id.should.be.a('string');
+                    res.body[0].name.should.be.a('string');
+                    res.body[0].name.should.equal('Fun Run');
+                    res.body[1].name.should.equal('Run Event');
+                    res.body[2].name.should.equal('Color Run');
                     done();
                 });
         });
+        it('should add an activity on POST', function(done) {
+            chai.request(app)
+                .post('/')
+                .send({
+                    'name': 'Jogger'
+                })
+                .end(function(err, res) {
+                    should.equal(err, null);
+                    res.should.have.status(201);
+                    res.should.be.json;
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('name');
+                    res.body.should.have.property('_id');
+                    res.body.name.should.be.a('string');
+                    res.body._id.should.be.a('string');
+                    res.body.name.should.equal('Jogger');
+                    done();
+                });
+        });
+
+        it('should delete an item on DELETE', function(done) {
+            chai.request(app)
+                .delete('/')
+                .end(function(err, res) {
+                    res.should.have.status(404);
+                    done();
+                });
+        });
+
     });
 
-    describe('event page', function() {
-        it('exists', function(done) {
-            chai.request(app)
-                .get('/')
-                .end(function(err, res) {
-                    res.should.have.status(200);
-                    res.should.be.html;
-                    done();
-                });
-        });
-    });
 
-    describe('dashboard page', function() {
-        it('exists', function(done) {
-            chai.request(app)
-                .get('/')
-                .end(function(err, res) {
-                    res.should.have.status(200);
-                    res.should.be.html;
-                    done();
-                });
-        });
-    });
     after(function(done) {
         Activity.remove(function() {
             done();

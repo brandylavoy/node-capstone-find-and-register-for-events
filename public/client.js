@@ -211,7 +211,6 @@ $(document).on('click', '.activity-results .addToFavoritesButton', function(even
             url: '/add-to-favorites/',
         })
         .done(function(result) {
-            console.log(result);
             populateFavoritesContainer();
         })
         .fail(function(jqXHR, error, errorThrown) {
@@ -240,7 +239,6 @@ $(document).on('click', '.deleteFavorite', function(event) {
             url: '/delete-favorites/' + favoritesIdToDelete,
         })
         .done(function(result) {
-            console.log(result);
             populateFavoritesContainer();
         })
         .fail(function(jqXHR, error, errorThrown) {
@@ -250,109 +248,3 @@ $(document).on('click', '.deleteFavorite', function(event) {
         });
 });
 
-
-
-
-
-//     $("#activitySearch").submit(function(event) {
-//         //if the page refreshes when you submit use "preventDefault()" to force JavaScript to handle the form submission
-//         event.preventDefault();
-//         //get the value from the input box
-//         var zip = $("#zip").val();
-//         var activityRadius = $("#activityRadius").val();
-//         var activityDistance = $("#activityDistance").val();
-
-
-//         //use that value to call the getResults function
-//         ajaxActiveSearch(zip, activityDistance);
-
-//     })
-// };
-
-// function getActiveSearchData(zip, activityDistance) {
-
-//     var active_base_URL = "http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&zip=94590&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx" 
-
-//     if (zip != "" && activityRadius != "" && activityDistance != "") {
-//         // active_base_URL +=;
-//     }
-//     else {
-//         alert("Please enter a value for zip code, select a search radius, and running event distance")
-//     }
-
-
-//     console.log(active_base_URL);
-
-//define function
-//enter search term return recipes and/or
-//select diet return filtered list of recipes and/or
-//select allergy return filtered list of recipes
-
-// STEP 1 - get the input from the user
-// $("#activitySearch").submit(function (event) {
-//     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
-//     event.preventDefault();
-//     //get the value from the input box
-//     var zip = $("#zip").val();
-//     var activityRadius = $("#activityRadius").val();
-
-//     console.log(zip, activityRadius);
-//     //use that value to call the getResults function defined bellow
-//     getActiveSearchData(zip, activityRadius);
-// });
-
-// function getActiveSearchData(zip, activityRadius) {
-//     http: //api.amp.active.com/v2/search?topicName=Running&registerable_only=true&zip=92101&radius=50
-
-
-//         var active_base_URL = "http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true";
-
-//     if (zip != "" && activityRadius != "choose") {
-//         active_base_URL += "&zip=" + zip += "&radius="  + value += "&api_key=2e4ra5w6b9augfrn54vjb4bx"
-//     } 
-
-//     else {
-//         alert("Please enter a value for zip code, select a search radius, and then submit");
-//     }
-
-//     console.log(active_base_URL);
-//     var result = $.ajax({
-//             /* update API end point */
-//             url: active_base_URL,
-//             dataType: "json",
-//             /*set the call type GET / POST*/
-//             type: "GET"
-//         })
-//         /* if the call is successful (status 200 OK) show results */
-//         .done(function (result) {
-//             /* if the results are meeningful, we can just console.log them */
-//             console.log(result);
-//             //
-//             //            console.log(result.matches[0].recipeName);
-//             //            console.log((result.matches[0].totalTimeInSeconds / 60) + " minutes");
-//             //            console.log(result.matches[0].rating + "*");
-
-//             displayActiveSearchData(result.matches);
-//         })
-//         /* if the call is NOT successful show errors */
-//         .fail(function (jqXHR, error, errorThrown) {
-//             console.log(jqXHR);
-//             console.log(error);
-//             console.log(errorThrown);
-//         });
-// }
-
-
-
-
-
-
-
-
-
-//use functions
-// $(document).ready(function() {
-
-// })
-
-//on click on #searchButton filter results and display them
