@@ -167,14 +167,16 @@ $(function() {
 
 // add activity to favorites section
 $(document).on('click', '.activity-results .addToFavoritesButton', function(event) {
+    
+        $('.activity-results .addToFavoritesButton').click(function() {
+        $(this).toggleClass("highlight");
+});
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
  
     //get the value from the input box
 
-    $('.activity-results .addToFavoritesButton').click(function() {
-        $(this).addClass("highlight");
-});
+
     var favoritesValue = $(this).parent().find('.addToFavoritesValue').val();
     var favoritesDateValue = $(this).parent().find('.addToFavoritesDateValue').val();
     var favoritesPlaceValue = $(this).parent().find('.addToFavoritesPlaceValue').val();
@@ -209,6 +211,9 @@ $(document).on('click', '.deleteFavorite', function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
+
+    
+    
     var favoritesIdToDelete = $(this).parent().find('.deleteFavoriteValueInput').val();
 
 
