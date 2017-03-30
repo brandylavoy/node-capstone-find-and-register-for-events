@@ -169,9 +169,12 @@ $(function() {
 $(document).on('click', '.activity-results .addToFavoritesButton', function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
+ 
     //get the value from the input box
 
-
+    $('.activity-results .addToFavoritesButton').click(function() {
+        $(this).addClass("highlight");
+});
     var favoritesValue = $(this).parent().find('.addToFavoritesValue').val();
     var favoritesDateValue = $(this).parent().find('.addToFavoritesDateValue').val();
     var favoritesPlaceValue = $(this).parent().find('.addToFavoritesPlaceValue').val();

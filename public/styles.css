@@ -184,6 +184,10 @@ ul {
     width: 100%;
 }
 
+.highlight {
+    background: red;
+}
+
 .display-results a {
     color: #005F58;
 }
