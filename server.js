@@ -38,7 +38,7 @@ if (require.main === module) {
 var getFromActive = function(searchTerm) {
     var emitter = new events.EventEmitter();
     //console.log("inside getFromActive function");
-    unirest.get("http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&category=races&sort=date_asc&per_page=24&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
+    unirest.get("http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&category=races&attributeValue=5k&sort=date_asc&per_page=24&near="+searchTerm+",US&radius=50&api_key=2e4ra5w6b9augfrn54vjb4bx")
         .header("Accept", "application/json")
         .end(function(result) {
             //console.log(result.status, result.headers, result.body);
@@ -78,9 +78,6 @@ app.get('/activity/:name', function (req, res) {
 
 
 app.post('/add-to-favorites', function (req, res) {
-    
-
-    //console.log("request body = ", req.body);
 
     //db connection and data queries
         activity.create({
@@ -121,16 +118,7 @@ app.delete('/delete-favorites/:favoritesId', function(req, res) {
     });
 });
 
-// app.delete('/delete-favorites', function (req, res) {
-//     activity.remove(req.params.id, function (err, items) {
-//         if (err)
-//             return res.status(404).json({
-//                 message: 'Item not found.'
-//             });
 
-//         res.status(200).json(items);
-//     });
-// });
 
 exports.app = app;
 exports.runServer = runServer;

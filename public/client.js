@@ -26,16 +26,11 @@ function ajaxActiveSearch(searchTerm) {
 function displayActiveSearchData(dataMatches) {
     //create an empty variable to store one LI for each of the results
     var buildTheHtmlOutput = "";
-    // var buildTheHtmlOutput = "<ul class='activity-results'>";
-    // http://api.amp.active.com/v2/search?topicName=Running&registerable_only=true&zip=94590&radius=25&api_key=2e4ra5w6b9augfrn54vjb4bx
     $.each(dataMatches, function(dataMatchesKey, dataMatchesValue) {
         //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
         buildTheHtmlOutput += '<li class="events">';
-
         buildTheHtmlOutput += "<div class='favorites'>";
-
         var utcDate = dataMatchesValue.activityStartDate; // ISO-8601 formatted date returned from server
-
         buildTheHtmlOutput += "<form class='addToFavorites'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
         buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
@@ -46,12 +41,11 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += "</button>";
         buildTheHtmlOutput += "</form>";
         buildTheHtmlOutput += "</div>";
-        // buildTheHtmlOutput += "<img class='eventImage' src='" + dataMatchesValue.logoUrlAdr + "'/>"; 
         buildTheHtmlOutput += '<div class="event-description">';
 
         var linkUrl = dataMatchesValue.registrationUrlAdr;
         if (linkUrl === undefined) {
-            buildTheHtmlOutput += '<h4>' + dataMatchesValue.assetName + '</h4>';
+            buildTheHtmlOutput += '<h4><a target="_blank" href="www.active.com"' + dataMatchesValue.assetName + '</a></h4>';
         }
         else {
             buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h4>';
@@ -69,12 +63,7 @@ function displayActiveSearchData(dataMatches) {
 
         buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
 
-
-        // buildTheHtmlOutput += '<img>' + dataMatches.logoUrlAdr; 
-        // buildTheHtmlOutput += '</img>'
-
         var showDescription = dataMatchesValue.assetDescriptions[0];
-        // console.log(showDescription);
         if (showDescription === undefined) {
             buildTheHtmlOutput += "";
         }
@@ -86,8 +75,6 @@ function displayActiveSearchData(dataMatches) {
         buildTheHtmlOutput += '</li>';
     });
 
-    // buildTheHtmlOutput += "</ul>";
-    // console.log(dataMatches);
     //use the HTML output to show it in the index.html
     $(".activity-results").html(buildTheHtmlOutput);
 }
@@ -121,12 +108,6 @@ $("#activitySearch").submit(function(event) {
   
 
 });
-
-
-// Alert if input is left blank
-// if (ajaxActiveSearch == "") {
-//     alert("Unfortunatley your search did not return any events. Please try entering a different city and state.")
-// }
 
 
 //populate favorites container

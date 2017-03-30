@@ -173,12 +173,6 @@ ul {
      vertical-align: top;
 }
 
-
-/*.display-results .activity-results .events .eventImage{*/
-/*    width: 40px;*/
-/*    height: 40px;*/
-/*}*/
-
 .display-results .activity-results .events .favorites {
     position: absolute;
     top: -1px;
@@ -267,10 +261,5 @@ footer {
         margin: 0.5rem auto;
         display: block; 
     }
-/*.home-screen{*/
-/*    display: block;*/
-/*    text-align: center;*/
-/*    width:25%;*/
-/*}*/
-    
+
 }
