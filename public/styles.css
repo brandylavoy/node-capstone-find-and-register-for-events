@@ -61,6 +61,14 @@ header {
     /*padding: 10px;*/
 }
 
+header h1{
+    padding-top: 10px;
+}
+
+header img {
+    padding-bottom: 10px;
+}
+
 header form.search {
     background-color: #47B5AD;
 }
@@ -124,6 +132,10 @@ h3 {
     color: #005F58;
 }
 
+h6{
+    font-size: 0.75rem;
+}
+
 ul {
     list-style: none;
 }
@@ -182,10 +194,11 @@ ul {
 
 .display-results .activity-results .events .favorites .add-favorite-icon {
     width: 100%;
+    border-radius: 5px;
 }
 
 .highlight {
-    background: red;
+    background: #005F58;
 }
 
 .display-results a {
